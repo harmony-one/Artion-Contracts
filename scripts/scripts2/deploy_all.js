@@ -177,7 +177,7 @@ async function main(network) {
 
     ////////
     const PriceFeed = await ethers.getContractFactory('FantomPriceFeed');
-    const WRAPPED_FTM = network.name === 'mainnet' ? WRAPPED_FTM_MAINNET : WRAPPED_FTM_TESTNET;
+    const WRAPPED_FTM = network.name === 'mainnet0' ? WRAPPED_FTM_MAINNET : WRAPPED_FTM_TESTNET;
     const priceFeed = await PriceFeed.deploy(
       FANTOM_ADDRESS_REGISTRY,
       WRAPPED_FTM
