@@ -8,6 +8,9 @@ require('@nomiclabs/hardhat-solhint');
 require('hardhat-contract-sizer');
 require('@openzeppelin/hardhat-upgrades');
 
+// Import tasks
+require('./tasks/verify');
+
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 module.exports = {
@@ -26,14 +29,19 @@ module.exports = {
     gasPrice: 50,
   },
   networks: {
-    mainnet: {
-      url: `https://rpcapi.fantom.network`,
-      chainId: 250,
-      accounts: [`0x${PRIVATE_KEY}`]
+    mainnet0: {
+      url: "https://api.harmony.one",
+      chainId: 1666600000,
+      accounts: [`0x${PRIVATE_KEY}`],
     },
-    testnet: {
-      url: `https://rpcapi-tracing.testnet.fantom.network`,
-      chainId: 4002,
+    mainnet1: {
+      url: "https://s1.api.harmony.one",
+      chainId: 1666600001,
+      accounts: [`0x${PRIVATE_KEY}`],
+    },
+    testnet0: {
+      url: `https://api.s0.b.hmny.io`,
+      chainId: 1666700000,
       accounts: [`0x${PRIVATE_KEY}`]
     },
     ropsten: {
